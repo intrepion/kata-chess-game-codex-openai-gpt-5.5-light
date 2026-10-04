@@ -51,3 +51,27 @@ _Avoid_: Coach analysis, engine commentary
 **Half-Move Undo**:
 An undo action that reverses the single most recent move by one player.
 _Avoid_: Turn undo, rewind
+
+**Piece Set**:
+The visual design used to represent chess pieces on the board.
+_Avoid_: Font, sprites
+
+**Standard Algebraic Notation**:
+The chess-literate move notation used as the primary move history display, such as `e4`, `Nf3`, or `O-O`.
+_Avoid_: Simple notation, coordinate-only notation
+
+**Coordinate Detail**:
+Supplemental origin-and-destination move detail, such as `e2-e4`, used to clarify a move without replacing Standard Algebraic Notation.
+_Avoid_: Primary notation, debug notation
+
+**Current Game Persistence**:
+Saving the unfinished local game so it can continue after a refresh or reopened browser tab.
+_Avoid_: Game archive, account save
+
+**FEN**:
+Forsyth-Edwards Notation, a compact text representation of a chess position used for import, export, sharing, and testing.
+_Avoid_: Position editor, save file
+
+**Rules Smoke**:
+Focused verification that exercises important chess rule edge cases and outcomes before the game is considered playable.
+_Avoid_: Render smoke, unit coverage
