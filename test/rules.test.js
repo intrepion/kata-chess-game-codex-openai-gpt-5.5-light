@@ -20,3 +20,23 @@ test("MVP 1 rejects illegal moves", () => {
   assert.equal(result.ok, false);
   assert.equal(ChessRules.toFEN(result.game), ChessRules.toFEN(game));
 });
+
+test("MVP 2 records ordinary moves, captures, and captured pieces", () => {
+  let game = ChessRules.createGame();
+  game = ChessRules.makeMove(game, "e2", "e4").game;
+  game = ChessRules.makeMove(game, "d7", "d5").game;
+  const result = ChessRules.makeMove(game, "e4", "d5");
+  assert.equal(result.ok, true);
+  assert.equal(result.move.san, "exd5");
+  assert.equal(result.game.history.map((move) => move.coordinate).join(","), "e2-e4,d7-d5,e4-d5");
+  assert.deepEqual(result.game.captured, [{ color: "b", type: "p" }]);
+});
+
+test("MVP 2 undo reverses one half-move", () => {
+  let game = ChessRules.createGame();
+  game = ChessRules.makeMove(game, "e2", "e4").game;
+  const undone = ChessRules.undo(game);
+  assert.equal(undone.turn, "w");
+  assert.ok(ChessRules.pieceAt(undone, "e2"));
+  assert.equal(ChessRules.pieceAt(undone, "e4"), null);
+});
