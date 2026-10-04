@@ -27,3 +27,27 @@ _Avoid_: Log, transcript
 **Captured Pieces**:
 The pieces removed from the board by completed captures during the current game.
 _Avoid_: Graveyard, taken pieces
+
+**Move Interaction**:
+The player's act of selecting a piece and choosing its destination by either click/tap selection or drag-and-drop.
+_Avoid_: Mouse controls, drag controls
+
+**Board Orientation**:
+The visual direction of the board, including which side appears at the bottom of the screen.
+_Avoid_: Camera, viewpoint
+
+**Manual Flip**:
+A player-controlled change to board orientation, usually used when passing the device between local players.
+_Avoid_: Auto-flip, rotate turn
+
+**Promotion Choice**:
+The explicit selection of queen, rook, bishop, or knight when a pawn promotes.
+_Avoid_: Auto-queen, promotion prompt
+
+**Outcome Explanation**:
+A short teaching cue that explains check, checkmate, stalemate, or another game-ending state.
+_Avoid_: Coach analysis, engine commentary
+
+**Half-Move Undo**:
+An undo action that reverses the single most recent move by one player.
+_Avoid_: Turn undo, rewind
