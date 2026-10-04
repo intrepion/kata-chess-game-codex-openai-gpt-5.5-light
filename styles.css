@@ -64,6 +64,7 @@ button:hover, button:focus-visible {
 .board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   width: 100%;
   aspect-ratio: 1;
   border: 2px solid #2d3a48;
@@ -74,6 +75,7 @@ button:hover, button:focus-visible {
   position: relative;
   display: grid;
   place-items: center;
+  aspect-ratio: 1;
   border: 0;
   border-radius: 0;
   min-height: 0;

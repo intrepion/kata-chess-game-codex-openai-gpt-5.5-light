@@ -36,3 +36,15 @@ test("MVP 1 renders visually distinct piece silhouettes", async ({ page }) => {
   });
   expect(new Set(signatures).size).toBe(6);
 });
+
+test("MVP 1 keeps empty board rows the same height", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => localStorage.clear());
+  await page.reload();
+  await page.locator("[data-square='e2']").click();
+  await page.locator("[data-square='e4']").click();
+  const heights = await page.evaluate(() => {
+    return Array.from(document.querySelectorAll(".square")).map((square) => Math.round(square.getBoundingClientRect().height));
+  });
+  expect(new Set(heights).size).toBe(1);
+});
