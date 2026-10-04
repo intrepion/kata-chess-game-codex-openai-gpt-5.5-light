@@ -25,3 +25,14 @@ test("MVP 1 supports drag movement", async ({ page }) => {
   await expect(page.locator("[data-square='f3'] svg")).toBeVisible();
   await expect(page.locator("#debug-state")).toContainText('"turn":"b"');
 });
+
+test("MVP 1 renders visually distinct piece silhouettes", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => localStorage.clear());
+  await page.reload();
+  const signatures = await page.evaluate(() => {
+    const squares = ["a1", "b1", "c1", "d1", "e1", "a2"];
+    return squares.map((square) => document.querySelector(`[data-square='${square}'] svg`).innerHTML.replace(/#[0-9a-fA-F]{3,6}/g, "#color"));
+  });
+  expect(new Set(signatures).size).toBe(6);
+});

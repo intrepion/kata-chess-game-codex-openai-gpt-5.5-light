@@ -43,13 +43,35 @@
   function pieceSvg(piece) {
     const fill = piece.color === "w" ? "#f8fbff" : "#17202a";
     const stroke = piece.color === "w" ? "#17202a" : "#f8fbff";
+    const accent = piece.color === "w" ? "#d7a827" : "#7ad1c4";
     const label = pieceLetters[piece.type] || "P";
     return `<svg class="piece" viewBox="0 0 100 100" aria-hidden="true">
-      <circle cx="50" cy="29" r="15" fill="${fill}" stroke="${stroke}" stroke-width="5"></circle>
-      <path d="M25 82h50l-8-31H33z" fill="${fill}" stroke="${stroke}" stroke-width="5" stroke-linejoin="round"></path>
-      <path d="M32 90h36" stroke="${stroke}" stroke-width="7" stroke-linecap="round"></path>
-      <text x="50" y="61" text-anchor="middle" font-size="28" font-weight="800" fill="${stroke}" font-family="Arial">${label}</text>
+      ${pieceShape(piece.type, fill, stroke, accent)}
+      <text class="piece-letter" x="50" y="70" text-anchor="middle" font-size="18" font-weight="900" fill="${stroke}" font-family="Arial">${label}</text>
     </svg>`;
+  }
+
+  function pieceShape(type, fill, stroke, accent) {
+    const base = `<path class="piece-base" d="M24 86h52l-5-13H29z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>`;
+    const shapes = {
+      k: `<path d="M50 11v23M39 22h22" stroke="${accent}" stroke-width="7" stroke-linecap="round"></path>
+        <path d="M31 70l7-31h24l7 31z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>
+        <circle cx="50" cy="39" r="11" fill="${fill}" stroke="${stroke}" stroke-width="4"></circle>`,
+      q: `<path d="M25 34l11 32h28l11-32-16 13-9-23-9 23z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>
+        <circle cx="25" cy="31" r="6" fill="${accent}" stroke="${stroke}" stroke-width="3"></circle>
+        <circle cx="50" cy="22" r="6" fill="${accent}" stroke="${stroke}" stroke-width="3"></circle>
+        <circle cx="75" cy="31" r="6" fill="${accent}" stroke="${stroke}" stroke-width="3"></circle>`,
+      r: `<path d="M29 24h10v10h8V24h8v10h8V24h10v47H29z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>
+        <path d="M31 45h38" stroke="${accent}" stroke-width="5" stroke-linecap="round"></path>`,
+      b: `<path d="M50 18c15 14 20 26 8 50H42c-12-24-7-36 8-50z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>
+        <path d="M56 29L42 51" stroke="${accent}" stroke-width="5" stroke-linecap="round"></path>
+        <circle cx="50" cy="18" r="7" fill="${fill}" stroke="${stroke}" stroke-width="4"></circle>`,
+      n: `<path d="M35 71c-1-17 5-27 17-35l-7-12c16 2 27 13 25 30l-6 17z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>
+        <path d="M51 36l-11 9M59 42h1" stroke="${accent}" stroke-width="5" stroke-linecap="round"></path>`,
+      p: `<circle cx="50" cy="34" r="14" fill="${fill}" stroke="${stroke}" stroke-width="4"></circle>
+        <path d="M36 70l7-23h14l7 23z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"></path>`
+    };
+    return `${shapes[type]}${base}`;
   }
 
   function render() {
