@@ -95,3 +95,27 @@ _Avoid_: Edge-case pass, rare rules
 **Complete Game Slice**:
 The closing slice that combines endgame outcomes, outcome explanations, current game persistence, FEN import/export, and verification.
 _Avoid_: Polish pass, final cleanup
+
+**Side Panel**:
+The stable information area beside the board on desktop and below the board on mobile.
+_Avoid_: Sidebar, overlay
+
+**Turn Status**:
+The current player-to-move and any immediate state such as check or game over.
+_Avoid_: Status label, player indicator
+
+**Generated Sound**:
+Short audio feedback synthesized in the browser for moves, captures, check, and game-over events.
+_Avoid_: Soundtrack, ambience
+
+**Keyboard Square Navigation**:
+Keyboard interaction that lets a player move focus across board squares, select a piece, and choose a destination.
+_Avoid_: Keyboard shortcut support, screen-reader mode
+
+**ARIA Status**:
+Accessible status text that announces important turn, move, check, and outcome changes to assistive technology.
+_Avoid_: Accessibility note, hidden label
+
+**Test Seam**:
+A hidden DOM or `window` surface that exposes game state for automated browser verification without adding visible debug UI.
+_Avoid_: Debug drawer, developer panel
