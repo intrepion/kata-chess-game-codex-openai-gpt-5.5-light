@@ -75,3 +75,23 @@ _Avoid_: Position editor, save file
 **Rules Smoke**:
 Focused verification that exercises important chess rule edge cases and outcomes before the game is considered playable.
 _Avoid_: Render smoke, unit coverage
+
+**Playable Slice**:
+A staged increment that can be opened in the browser and exercised by a player, even before the complete game is done.
+_Avoid_: Phase, milestone
+
+**Board Slice**:
+The first playable slice that renders the board and pieces, supports piece selection, and highlights legal moves.
+_Avoid_: Static mockup, render-only slice
+
+**Ordinary Move Loop**:
+The core turn cycle for non-special moves and captures, including move history updates.
+_Avoid_: Basic movement, partial chess
+
+**Special Rule Slice**:
+The playable slice that adds castling, en passant, and promotion choice.
+_Avoid_: Edge-case pass, rare rules
+
+**Complete Game Slice**:
+The closing slice that combines endgame outcomes, outcome explanations, current game persistence, FEN import/export, and verification.
+_Avoid_: Polish pass, final cleanup
