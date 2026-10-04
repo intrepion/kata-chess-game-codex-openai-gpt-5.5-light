@@ -22,15 +22,15 @@
 
   function loadGame() {
     try {
-      const fen = localStorage.getItem(STORAGE_KEY);
-      if (fen) return ChessRules.createGame(fen);
+      const serialized = localStorage.getItem(STORAGE_KEY);
+      if (serialized) return ChessRules.deserialize(serialized);
     } catch (error) {}
     return ChessRules.createGame();
   }
 
   function saveGame() {
     try {
-      localStorage.setItem(STORAGE_KEY, ChessRules.toFEN(game));
+      localStorage.setItem(STORAGE_KEY, ChessRules.serialize(game));
     } catch (error) {}
   }
 
@@ -150,7 +150,10 @@
     }
     game = result.game;
     clearSelectionState();
-    playTone(result.move.captured ? 260 : 420);
+    const postMoveOutcome = ChessRules.outcome(game);
+    if (postMoveOutcome.type === "checkmate" || postMoveOutcome.type === "stalemate") playTone(180);
+    else if (postMoveOutcome.type === "check") playTone(620);
+    else playTone(result.move.captured ? 260 : 420);
     render();
   }
 

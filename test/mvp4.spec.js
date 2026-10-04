@@ -23,6 +23,7 @@ test("Complete Game Slice persists the current game across refresh", async ({ pa
   await page.reload();
   await expect(page.locator("[data-square='e4'] svg")).toBeVisible();
   await expect(page.locator("#fen-box")).toHaveValue(/4P3/);
+  await expect(page.locator("#move-history")).toContainText("e4 (e2-e4)");
 });
 
 test("Complete Game Slice loads FEN and supports keyboard square navigation", async ({ page }) => {

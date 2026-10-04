@@ -89,3 +89,14 @@ test("Complete Game Slice round-trips FEN", () => {
   const fen = "r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1";
   assert.equal(ChessRules.toFEN(ChessRules.createGame(fen)), fen);
 });
+
+test("Review Fix rejects invalid castling rights without a rook", () => {
+  assert.throws(() => ChessRules.createGame("4k3/8/8/8/8/8/8/4K3 w K - 0 1"), /Invalid FEN/);
+});
+
+test("Review Fix uses full SAN disambiguation", () => {
+  const game = ChessRules.createGame("4k3/8/8/8/8/2N1N3/8/4K3 w - - 0 1");
+  const result = ChessRules.makeMove(game, "c3", "d5");
+  assert.equal(result.ok, true);
+  assert.equal(result.move.san, "Ncd5");
+});
