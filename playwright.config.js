@@ -1,6 +1,7 @@
 module.exports = {
   testDir: "./test",
   testMatch: "*.spec.js",
+  workers: 1,
   use: {
     browserName: "chromium",
     baseURL: "http://127.0.0.1:4173"

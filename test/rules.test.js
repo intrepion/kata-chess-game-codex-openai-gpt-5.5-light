@@ -70,3 +70,22 @@ test("MVP 3 supports explicit promotion choice", () => {
   assert.equal(ChessRules.pieceAt(result.game, "a8").type, "n");
   assert.equal(result.move.san, "a8=N");
 });
+
+test("Complete Game Slice detects checkmate", () => {
+  let game = ChessRules.createGame();
+  game = ChessRules.makeMove(game, "f2", "f3").game;
+  game = ChessRules.makeMove(game, "e7", "e5").game;
+  game = ChessRules.makeMove(game, "g2", "g4").game;
+  game = ChessRules.makeMove(game, "d8", "h4").game;
+  assert.deepEqual(ChessRules.outcome(game), { type: "checkmate", winner: "b" });
+});
+
+test("Complete Game Slice detects stalemate", () => {
+  const game = ChessRules.createGame("7k/5Q2/6K1/8/8/8/8/8 b - - 0 1");
+  assert.deepEqual(ChessRules.outcome(game), { type: "stalemate", winner: null });
+});
+
+test("Complete Game Slice round-trips FEN", () => {
+  const fen = "r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1";
+  assert.equal(ChessRules.toFEN(ChessRules.createGame(fen)), fen);
+});
