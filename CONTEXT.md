@@ -119,3 +119,23 @@ _Avoid_: Accessibility note, hidden label
 **Test Seam**:
 A hidden DOM or `window` surface that exposes game state for automated browser verification without adding visible debug UI.
 _Avoid_: Debug drawer, developer panel
+
+**Rules Module**:
+The local JavaScript module that owns legal move generation, position updates, and game outcome checks.
+_Avoid_: Engine, AI, rules library
+
+**Direct-File Packaging**:
+The committed static-file structure that lets the game run from `index.html` without a dev server or network dependency.
+_Avoid_: Build output, hosted app
+
+**Computer Opponent**:
+An automated player that chooses chess moves for one side.
+_Avoid_: AI, engine, bot
+
+**MVP 1**:
+The first playable slice: board rendering, piece selection, legal move highlighting, click/tap movement, drag movement, and browser verification of those interactions.
+_Avoid_: Prototype, mockup
+
+**Browser Interaction Coverage**:
+Automated or manual browser evidence that player-facing interactions work in the real rendered game.
+_Avoid_: Syntax check, render check
