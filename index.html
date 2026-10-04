@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiet Chess</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="board-wrap" aria-label="Chess board">
+        <div class="rank-files" id="board-labels"></div>
+        <div id="board" class="board" role="grid" aria-label="Chess board"></div>
+      </section>
+      <aside class="side-panel">
+        <div>
+          <p class="eyebrow">Local Game</p>
+          <h1>Quiet Chess</h1>
+          <p id="turn-status" class="turn-status" aria-live="polite">White to move</p>
+        </div>
+        <div class="controls">
+          <button id="new-game" type="button">New Game</button>
+          <button id="flip-board" type="button">Flip</button>
+          <button id="undo-move" type="button">Undo</button>
+          <button id="mute-sound" type="button" aria-pressed="false">Mute</button>
+        </div>
+        <section>
+          <h2>Captured Pieces</h2>
+          <div id="captured-pieces" class="captured" aria-live="polite">None</div>
+        </section>
+        <section>
+          <h2>Move History</h2>
+          <ol id="move-history" class="move-history"></ol>
+        </section>
+        <section>
+          <h2>FEN</h2>
+          <textarea id="fen-box" spellcheck="false" rows="3" aria-label="FEN position"></textarea>
+          <div class="controls">
+            <button id="copy-fen" type="button">Copy FEN</button>
+            <button id="load-fen" type="button">Load FEN</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+    <div id="promotion-modal" class="promotion-modal" hidden>
+      <div class="promotion-card" role="dialog" aria-modal="true" aria-labelledby="promotion-title">
+        <h2 id="promotion-title">Choose Promotion</h2>
+        <div id="promotion-choices" class="promotion-choices"></div>
+      </div>
+    </div>
+    <div id="aria-status" class="sr-only" aria-live="assertive"></div>
+    <pre id="debug-state" hidden></pre>
+    <script src="./chess-rules.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>

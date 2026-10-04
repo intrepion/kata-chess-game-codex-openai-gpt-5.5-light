@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "check": "node --test test/*.test.js && node --check chess-rules.js && node --check game.js && npx playwright test",
+    "test:rules": "node --test test/*.test.js",
+    "test:browser": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
