@@ -1,6 +1,51 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "gameId": "kata-chess-game-codex-openai-gpt-5.5-light",
   "playUrl": "https://intrepion.github.io/kata-chess-game-codex-openai-gpt-5.5-light/",
-  "screenshots": []
+  "screenshots": [
+    {
+      "path": "arcade/screenshots/ci-20261102-01.jpg",
+      "sha256": "62cd1f3ce136ed3ec4a1ee0975c64bbfc669b8fbff2de28cb2b48832b996f024",
+      "alt": "Quiet Chess gameplay, view 1",
+      "provenance": {
+        "kind": "ci_gameplay_capture",
+        "sourcePath": "arcade/capture-evidence/ci-20261102-01.png",
+        "sourceSha256": "02223948ed7ca5a69067f53f205a5abe7dd1434a2cd27bf4083532e679b5195f",
+        "captureCommit": "932c1c00dcff9651ed4497b03ec976de93b18e8c",
+        "workflowRunId": "41379492217",
+        "inputHashes": {
+          "index.html": "ce5b2a964b2724fc30f89a2e835909850024feada8658dbec52319d4f8779def",
+          "styles.css": "7b0ec5e4082bd3cf02fde0f1ee1ae64ede8857e2a0e6238bb07a5b12e8542af4",
+          "game.js": "be9efce3193588b838854d1a4605a175ad640f0b0e747d3fcabac49aaa603da3",
+          "chess-rules.js": "4bd52aa17ddec34567f4aa1d5f5d4710ea725f628a8fd0651133e79f700f4812",
+          "vendor/chess-vendor.js": "adb523f00d541ebb59e027eb227490bde7c83c1967c91ed6d7e4fd36ea6bf1e5"
+        },
+        "publishedFilesVerifiedAt": "2026-11-02T19:01:20Z",
+        "captureRecordPath": "arcade/capture-evidence/ci-20261102-record.json",
+        "captureRecordSha256": "9090f698cad4c5e550e585279e3061acd415750ac9c849a89bc2f904915d1ad2"
+      }
+    },
+    {
+      "path": "arcade/screenshots/ci-20261102-02.jpg",
+      "sha256": "6076dcdaf3ecb46a29d31897d738887b221cd7bb056e540e0a78ceab57a1f212",
+      "alt": "Quiet Chess gameplay, view 2",
+      "provenance": {
+        "kind": "ci_gameplay_capture",
+        "sourcePath": "arcade/capture-evidence/ci-20261102-02.png",
+        "sourceSha256": "6c9eff2ce2a4562c22f971afe7b8e766c8779e9df05cbc5e1d2a53b75d96969c",
+        "captureCommit": "932c1c00dcff9651ed4497b03ec976de93b18e8c",
+        "workflowRunId": "41379492217",
+        "inputHashes": {
+          "index.html": "ce5b2a964b2724fc30f89a2e835909850024feada8658dbec52319d4f8779def",
+          "styles.css": "7b0ec5e4082bd3cf02fde0f1ee1ae64ede8857e2a0e6238bb07a5b12e8542af4",
+          "game.js": "be9efce3193588b838854d1a4605a175ad640f0b0e747d3fcabac49aaa603da3",
+          "chess-rules.js": "4bd52aa17ddec34567f4aa1d5f5d4710ea725f628a8fd0651133e79f700f4812",
+          "vendor/chess-vendor.js": "adb523f00d541ebb59e027eb227490bde7c83c1967c91ed6d7e4fd36ea6bf1e5"
+        },
+        "publishedFilesVerifiedAt": "2026-11-02T19:01:20Z",
+        "captureRecordPath": "arcade/capture-evidence/ci-20261102-record.json",
+        "captureRecordSha256": "9090f698cad4c5e550e585279e3061acd415750ac9c849a89bc2f904915d1ad2"
+      }
+    }
+  ]
 }

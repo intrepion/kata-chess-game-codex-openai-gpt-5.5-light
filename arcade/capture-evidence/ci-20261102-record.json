@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "workflowCommit": "d9966590b59b38daa49953eb8f7643a02ea826bd",
+  "sourceCommit": "932c1c00dcff9651ed4497b03ec976de93b18e8c",
+  "runId": "41379492217",
+  "url": "http://127.0.0.1:4179/",
+  "inputs": {
+    "index.html": "ce5b2a964b2724fc30f89a2e835909850024feada8658dbec52319d4f8779def",
+    "styles.css": "7b0ec5e4082bd3cf02fde0f1ee1ae64ede8857e2a0e6238bb07a5b12e8542af4",
+    "game.js": "be9efce3193588b838854d1a4605a175ad640f0b0e747d3fcabac49aaa603da3",
+    "chess-rules.js": "4bd52aa17ddec34567f4aa1d5f5d4710ea725f628a8fd0651133e79f700f4812",
+    "vendor/chess-vendor.js": "adb523f00d541ebb59e027eb227490bde7c83c1967c91ed6d7e4fd36ea6bf1e5"
+  },
+  "browser": "153.0.8010.12",
+  "viewport": {
+    "width": 1280,
+    "height": 1000
+  },
+  "screenshots": [
+    "chess-01.png",
+    "chess-02.png"
+  ]
+}
